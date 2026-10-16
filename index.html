@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pour Leya 💘</title>
+<meta name="theme-color" content="#2a0a26">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:#ff5c93; --rose2:#ff8fb3; --gold:#ffd7a8; --cream:#fff3ec; --plum:#1c0a22;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  font-family:'Quicksand',system-ui,sans-serif;
+  color:var(--cream);
+  min-height:100dvh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(ellipse at 15% 8%, rgba(255,60,130,.38) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 95%, rgba(150,60,220,.30) 0%, transparent 55%),
+    linear-gradient(160deg,#1c0a22,#33102c 60%,#52123a);
+  background-attachment:fixed;
+  -webkit-tap-highlight-color:transparent;
+}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+main{position:relative;z-index:2;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:22px}
+.card{
+  width:min(580px,100%);
+  padding:30px 26px 30px;
+  border-radius:34px;
+  text-align:center;
+  background:linear-gradient(160deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
+  border:1px solid rgba(255,215,168,.32);
+  box-shadow:0 24px 90px rgba(255,60,120,.28), inset 0 1px 0 rgba(255,255,255,.22);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  animation:in .65s cubic-bezier(.2,.9,.3,1.15);
+}
+@keyframes in{from{opacity:0;transform:translateY(26px) scale(.95)}to{opacity:1;transform:none}}
+
+.prog{height:7px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden;margin:0 6px}
+.prog .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#ff5c93,#ffd7a8);box-shadow:0 0 14px rgba(255,92,147,.8);transition:width .6s}
+.pt{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin:10px 0 4px}
+
+.emoji{font-size:3.4rem;margin:14px 0 6px;animation:beat 1.6s ease-in-out infinite;filter:drop-shadow(0 6px 18px rgba(255,92,147,.6))}
+.emoji.big{font-size:5rem;margin-top:30px}
+@keyframes beat{0%,100%{transform:scale(1)}14%{transform:scale(1.18)}28%{transform:scale(1)}42%{transform:scale(1.12)}70%{transform:scale(1)}}
+
+h1{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:600;font-size:clamp(1.55rem,5.4vw,2.2rem);line-height:1.25;margin:8px 0 6px;text-shadow:0 2px 24px rgba(255,92,147,.45)}
+.sub{font-family:'Dancing Script',cursive;font-size:1.35rem;color:var(--gold);min-height:1.6em}
+
+.arena{position:relative;margin-top:26px;min-height:110px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center}
+.arena.col{flex-direction:column}
+.tease{min-height:1.7em;margin-top:18px;color:var(--gold);font-family:'Dancing Script',cursive;font-size:1.35rem}
+
+.btn{
+  font:700 1.05rem 'Quicksand',sans-serif;color:#fff;border:0;border-radius:999px;
+  padding:14px 30px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation;
+  transition:transform .2s, box-shadow .2s, left .3s cubic-bezier(.3,1.3,.5,1), top .3s cubic-bezier(.3,1.3,.5,1), font-size .3s, padding .3s;
+  max-width:100%;
+}
+.yes{background:linear-gradient(135deg,#ff4f8b,#ff8a5c);box-shadow:0 10px 32px rgba(255,92,147,.55)}
+.yes:hover{transform:scale(1.07)}
+.yes:active{transform:scale(.96)}
+.no{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.38)}
+.no.floating{position:fixed;z-index:60;margin:0}
+.opt{width:min(380px,100%);background:rgba(255,255,255,.1);border:1px solid rgba(255,215,168,.4)}
+.opt:hover{background:rgba(255,92,147,.35);transform:translateY(-2px)}
+.wiggle{animation:wig .4s}
+@keyframes wig{0%,100%{transform:none}25%{transform:translateX(-7px) rotate(-3deg)}75%{transform:translateX(7px) rotate(3deg)}}
+
+/* hold button */
+.hold{width:150px;height:150px;border-radius:50%;border:0;padding:0;position:relative;cursor:pointer;touch-action:none;
+  background:radial-gradient(circle,rgba(255,92,147,.4),rgba(255,92,147,.08));
+  -webkit-touch-callout:none;user-select:none;-webkit-user-select:none}
+.hold svg{position:absolute;inset:0;width:100%;height:100%;fill:none}
+.hold .trk{stroke:rgba(255,255,255,.16);stroke-width:6}
+.hold .bar{stroke:var(--gold);stroke-width:6;stroke-linecap:round;stroke-dasharray:339.3;stroke-dashoffset:339.3;filter:drop-shadow(0 0 6px rgba(255,215,168,.9))}
+.hold span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3.2rem;transition:transform .1s;pointer-events:none}
+
+/* slider */
+.slider-wrap{width:min(420px,100%)}
+.val{font-family:'Playfair Display',serif;font-size:3.4rem;font-style:italic;margin-bottom:12px;text-shadow:0 0 26px rgba(255,92,147,.7)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:10px;border-radius:99px;background:linear-gradient(90deg,#ff5c93,#ffd7a8);outline:none;margin:14px 0 24px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;border-radius:50%;background:#fff;border:4px solid #ff5c93;box-shadow:0 0 22px rgba(255,92,147,.9);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:#fff;border:4px solid #ff5c93;box-shadow:0 0 22px rgba(255,92,147,.9);cursor:pointer}
+
+/* finale */
+.cert{margin:20px 0 4px;padding:18px 16px;border-radius:22px;background:rgba(255,243,236,.08);border:1px dashed rgba(255,215,168,.6)}
+.cert h2{font-family:'Dancing Script',cursive;font-size:1.9rem;margin:0 0 6px;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.chip{font-size:.85rem;padding:7px 13px;border-radius:99px;background:rgba(255,92,147,.22);border:1px solid rgba(255,143,179,.5)}
+.letter{margin:20px 0 6px;font-family:'Dancing Script',cursive;font-size:1.4rem;line-height:1.5;text-align:left;padding:6px 8px}
+.sign{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--gold);text-align:right;padding-right:8px}
+.small{font-size:.9rem;opacity:.75;margin-top:16px}
+.ghost{background:transparent;border:1px solid rgba(255,255,255,.35);margin-top:16px;font-size:.95rem;padding:11px 22px}
+
+.fx{position:fixed;pointer-events:none;z-index:100;user-select:none}
+.trail{position:fixed;pointer-events:none;z-index:40;font-size:14px;color:var(--rose2);opacity:.9}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<main><div class="card" id="card"></div></main>
+
+<script>
+/* =====================  À PERSONNALISER  ===================== */
+const LETTER = "Leya, on s'est rencontrés derrière un écran, on ne s'est jamais vus en vrai, et pourtant tu es devenue la personne que j'ai le plus envie de retrouver à la fin de chaque journée. Nos messages, nos fous rires écrits, ta façon d'être toi… tout me rend un peu fou. Un jour je te le dirai en face. En attendant : bien joué, tu as gagné la plus belle partie de ma vie — mon cœur. 💖";
+const SIGNATURE = "— Ton petit admirateur secret";
+/* ============================================================ */
+
+const $ = (s, r = document) => r.querySelector(s);
+const rand = (a, b) => Math.random() * (b - a) + a;
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+
+const card = $('#card');
+const state = { i: -1, no: 0, answers: {} };
+let floaters = [];
+let locking = false;
+let rainTimer = null;
+
+/* ---------- fond : cœurs qui montent ---------- */
+const cv = $('#bg'), cx = cv.getContext('2d');
+let W, H, hearts = [];
+const COLORS = ['255,92,147', '255,143,179', '255,215,168', '200,120,255', '255,120,90'];
+function resize() {
+  const d = devicePixelRatio || 1;
+  W = innerWidth; H = innerHeight;
+  cv.width = W * d; cv.height = H * d;
+  cx.setTransform(d, 0, 0, d, 0, 0);
+}
+function mkHeart(init) {
+  return { x: rand(0, W), y: init ? rand(0, H) : H + 50, s: rand(10, 38), v: rand(.25, .9), a: rand(.12, .5), ph: rand(0, 6.28), sw: rand(.4, 1.2), c: pick(COLORS) };
+}
+function drawHeart(c, x, y, s) {
+  c.beginPath();
+  c.moveTo(x, y + s * .3);
+  c.bezierCurveTo(x, y, x - s * .5, y, x - s * .5, y + s * .3);
+  c.bezierCurveTo(x - s * .5, y + s * .65, x, y + s * .8, x, y + s);
+  c.bezierCurveTo(x, y + s * .8, x + s * .5, y + s * .65, x + s * .5, y + s * .3);
+  c.bezierCurveTo(x + s * .5, y, x, y, x, y + s * .3);
+  c.fill();
+}
+function loop(t) {
+  cx.clearRect(0, 0, W, H);
+  for (const h of hearts) {
+    h.y -= h.v; h.ph += .012 * h.sw;
+    const x = h.x + Math.sin(h.ph) * 22;
+    cx.fillStyle = `rgba(${h.c},${h.a})`;
+    drawHeart(cx, x, h.y, h.s);
+    if (h.y < -60) Object.assign(h, mkHeart(false));
+  }
+  requestAnimationFrame(loop);
+}
+addEventListener('resize', resize);
+resize();
+hearts = Array.from({ length: 46 }, () => mkHeart(true));
+requestAnimationFrame(loop);
+
+/* ---------- effets ---------- */
+function burst(x, y, n = 20, set = ['💖', '💗', '💕', '💘', '🌺', '✨', '💞']) {
+  for (let k = 0; k < n; k++) {
+    const s = el('span', 'fx', pick(set));
+    s.style.left = x + 'px'; s.style.top = y + 'px'; s.style.fontSize = rand(15, 32) + 'px';
+    document.body.appendChild(s);
+    const a = rand(0, Math.PI * 2), d = rand(70, 200);
+    s.animate([
+      { transform: 'translate(-50%,-50%) scale(.3)', opacity: 1 },
+      { transform: `translate(calc(-50% + ${Math.cos(a) * d}px),calc(-50% + ${Math.sin(a) * d - 70}px)) scale(1.25) rotate(${rand(-45, 45)}deg)`, opacity: 0 }
+    ], { duration: rand(900, 1500), easing: 'cubic-bezier(.2,.8,.3,1)' }).onfinish = () => s.remove();
+  }
+}
+let lastTrail = 0;
+addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse') return;
+  const n = performance.now(); if (n - lastTrail < 70) return; lastTrail = n;
+  const s = el('span', 'trail', '♥'); s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+  document.body.appendChild(s);
+  s.animate([{ transform: 'translate(-50%,-50%) scale(1)', opacity: .9 }, { transform: `translate(${rand(-20, 20)}px,${rand(20, 50)}px) scale(.3)`, opacity: 0 }], { duration: 900 }).onfinish = () => s.remove();
+});
+addEventListener('pointerdown', e => { if (!e.target.closest('.hold')) burst(e.clientX, e.clientY, 5, ['💗', '💕', '✨']); });
+
+function startRain() {
+  stopRain();
+  rainTimer = setInterval(() => {
+    const s = el('span', 'fx', pick(['💖', '💗', '💕', '🌺', '💘', '✨']));
+    s.style.left = rand(0, innerWidth) + 'px'; s.style.top = '-30px'; s.style.fontSize = rand(16, 34) + 'px';
+    document.body.appendChild(s);
+    s.animate([{ transform: 'translateY(0) rotate(0)', opacity: 1 }, { transform: `translateY(${innerHeight + 60}px) rotate(${rand(-90, 90)}deg)`, opacity: .8 }], { duration: rand(3500, 6500), easing: 'linear' }).onfinish = () => s.remove();
+  }, 220);
+}
+function stopRain() { clearInterval(rainTimer); rainTimer = null; }
+
+/* ---------- moteur ---------- */
+function cleanup() { floaters.forEach(f => f.remove()); floaters = []; }
+function pop() { card.style.animation = 'none'; void card.offsetWidth; card.style.animation = ''; }
+
+function done(reaction, x, y) {
+  if (locking) return;
+  locking = true;
+  cleanup();
+  burst(x ?? innerWidth / 2, y ?? innerHeight / 2, 26);
+  if (navigator.vibrate) navigator.vibrate(30);
+  card.innerHTML = `<div class="emoji big">💖</div><h1>${reaction}</h1>`;
+  pop();
+  setTimeout(() => {
+    locking = false;
+    state.i + 1 < Q.length ? render(state.i + 1) : finale();
+  }, 1500);
+}
+function yesBtn(label, reaction, cls = '') {
+  const b = el('button', 'btn yes ' + cls, label);
+  b.addEventListener('click', e => done(reaction, e.clientX || innerWidth / 2, e.clientY || innerHeight / 2));
+  return b;
+}
+function noBtn(label = 'Non') { return el('button', 'btn no', label); }
+
+/* bouton qui fuit */
+function dodge(no, yes, onTry) {
+  let floating = false, ph = null, last = 0;
+  const go = e => {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    const n = performance.now(); if (n - last < 200) return; last = n;
+    state.no++; onTry && onTry();
+    const r = no.getBoundingClientRect();
+    if (!floating) {
+      ph = el('span'); ph.style.cssText = `display:inline-block;width:${r.width}px;height:${r.height}px`;
+      no.replaceWith(ph);
+      document.body.appendChild(no);
+      no.classList.add('floating');
+      no.style.left = r.left + 'px'; no.style.top = r.top + 'px';
+      floaters.push(no); floating = true;
+      void no.offsetWidth;
+    }
+    const w = no.offsetWidth, h = no.offsetHeight, yr = yes.getBoundingClientRect();
+    const bad = (x, y) =>
+      (x < yr.right + 28 && x + w > yr.left - 28 && y < yr.bottom + 28 && y + h > yr.top - 28) ||
+      (Math.abs(x - r.left) < 70 && Math.abs(y - r.top) < 70);
+    let x, y, t = 0;
+    do {
+      x = rand(12, Math.max(13, innerWidth - w - 12));
+      y = rand(12, Math.max(13, innerHeight - h - 12));
+      t++;
+    } while (t < 40 && bad(x, y));
+    no.style.left = x + 'px'; no.style.top = y + 'px';
+  };
+  no.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') go(e); });
+  no.addEventListener('pointerdown', go);
+  no.addEventListener('click', e => e.preventDefault());
+}
+
+/* ---------- questions ---------- */
+const Q = [
+  /* 1 — Non qui fuit */
+  { e: '💘', q: 'Leya… est-ce que tu me trouves un tout petit peu mignon ?', sub: '(réponds honnêtement, je regarde)',
+    build({ arena, tease }) {
+      const yes = yesBtn('Oui 💖', 'Je le savais 😏💗');
+      const no = noBtn();
+      arena.append(yes, no);
+      const t = ['Raté 😏', 'Trop lent !', 'Il a peur de toi', 'Allez, clique sur Oui…', 'Tu l\'auras pas comme ça', 'Je t\'ai vue essayer 👀', 'Ce bouton te fuit autant que je te cours après 💨'];
+      let n = 0; dodge(no, yes, () => tease(t[n++ % t.length]));
+    } },
+
+  /* 2 — Non qui rétrécit, Oui qui grossit */
+  { e: '💭', q: 'Est-ce que tu penses à moi pendant ta journée ?', sub: '(même quand t\'es censée faire autre chose)',
+    build({ arena, tease }) {
+      const yes = yesBtn('Oui 💖', 'Moi aussi, tout le temps 🥹');
+      const no = noBtn();
+      arena.append(yes, no);
+      const t = ['Hé, il rétrécit 😳', 'Il disparaît petit à petit…', 'Bientôt plus de Non 🫧', 'Regarde comme Oui grandit 😌', 'Plus que quelques clics…'];
+      let n = 0;
+      no.addEventListener('click', () => {
+        n++; state.no++;
+        const s = Math.max(.15, 1 - n * .17);
+        no.style.fontSize = Math.max(.35, 1.05 * s) + 'rem';
+        no.style.padding = (14 * s) + 'px ' + (30 * s) + 'px';
+        yes.style.fontSize = Math.min(2.3, 1.05 + n * .28) + 'rem';
+        yes.style.padding = (14 + n * 3) + 'px ' + (30 + n * 6) + 'px';
+        tease(t[Math.min(n - 1, t.length - 1)]);
+        if (n >= 7) { no.remove(); tease('Le bouton Non a disparu. Désolé 🥰'); }
+      });
+    } },
+
+  /* 3 — Non qui change de texte puis devient Oui */
+  { e: '🧸', q: 'Si je t\'envoie un gros câlin virtuel, tu me le rends ?', sub: '(la loi du câlin : toujours un aller-retour)',
+    build({ arena, tease }) {
+      const yes = yesBtn('Oui 💖', 'Câlin géant en approche 🧸💞');
+      const no = noBtn('Non');
+      arena.append(yes, no);
+      const texts = ['Non', 'T\'es sûre ? 🥺', 'Réfléchis encore…', 'Même pas un petit ?', 'Je vais pleurer 😭', 'Tu me brises le cœur 💔', 'Allez stp 🥹', 'Ok là t\'abuses'];
+      let idx = 0, converted = false;
+      no.addEventListener('click', e => {
+        if (converted) { done('Câlin géant en approche 🧸💞', e.clientX, e.clientY); return; }
+        idx++; state.no++;
+        yes.style.transform = `scale(${1 + idx * .05})`;
+        no.classList.add('wiggle'); setTimeout(() => no.classList.remove('wiggle'), 400);
+        if (idx >= texts.length) {
+          converted = true; no.className = 'btn yes'; no.textContent = 'Oui, câlin 💞';
+          tease('Bon… je te laisse plus vraiment le choix 😌');
+        } else { no.textContent = texts[idx]; }
+      });
+    } },
+
+  /* 4 — Oui et Non qui échangent leurs places */
+  { e: '🎀', q: 'Tu veux bien être mon duo pour la vie ?', sub: '(juste toi et moi, personne d\'autre)',
+    build({ arena, tease }) {
+      const yes = yesBtn('Oui 💖', 'Duo officiel, pas de retour possible 🔒💞');
+      const no = noBtn();
+      yes.style.order = 0; no.style.order = 1;
+      arena.append(yes, no);
+      const t = ['Oups, ils ont échangé de place 🌀', 'Vertige ? 😵‍💫', 'Le destin veut que tu cliques Oui', 'Mélange mélange…', 'Tu tournes en rond 😂'];
+      let n = 0;
+      const swap = e => {
+        e.preventDefault(); state.no++;
+        const ra = yes.getBoundingClientRect(), rb = no.getBoundingClientRect();
+        const oa = yes.style.order, ob = no.style.order;
+        yes.style.order = ob; no.style.order = oa;
+        const na = yes.getBoundingClientRect(), nb = no.getBoundingClientRect();
+        const opts = { duration: 300, easing: 'cubic-bezier(.3,1.4,.5,1)' };
+        yes.animate([{ transform: `translate(${ra.left - na.left}px,${ra.top - na.top}px)` }, { transform: 'none' }], opts);
+        no.animate([{ transform: `translate(${rb.left - nb.left}px,${rb.top - nb.top}px)` }, { transform: 'none' }], opts);
+        tease(t[n++ % t.length]);
+      };
+      no.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') swap(e); });
+      no.addEventListener('pointerdown', swap);
+      no.addEventListener('click', e => e.preventDefault());
+    } },
+
+  /* 5 — Choix multiples, une option qui fuit */
+  { e: '👑', q: 'Entre nous deux, qui est le plus accro à l\'autre ?', sub: '(ta réponse sera utilisée contre toi)',
+    build({ arena, tease }) {
+      arena.classList.add('col');
+      const me = el('button', 'btn opt', 'Moi, évidemment 😎');
+      const you = el('button', 'btn opt', 'Toi, 100% 🥰');
+      const us = el('button', 'btn opt', 'Les deux, à égalité 💞');
+      you.onclick = e => { state.answers.carry = 'Lui, clairement 🥰'; done('Menteuse… mais j\'adore ça 😳', e.clientX, e.clientY); };
+      us.onclick = e => { state.answers.carry = 'À égalité 💞'; done('Parfaite égalité… on est foutus 💞', e.clientX, e.clientY); };
+      arena.append(me, you, us);
+      const t = ['Trop timide pour se laisser cliquer 😏', 'Ce bouton refuse de se laisser attraper', 'Il est plus rapide que toi 💨', 'Essaie un autre choix 😌'];
+      let n = 0; dodge(me, us, () => tease(t[n++ % t.length]));
+    } },
+
+  /* 6 — Premier date */
+  { e: '🌙', q: 'Notre premier vrai date, ce serait quoi ?', sub: '(le jour où on se rencontrera… et ça arrivera 😌)',
+    build({ arena }) {
+      arena.classList.add('col');
+      [
+        ['Ciné + popcorn partagé 🍿', 'Popcorn partagé, mains qui se frôlent… noté 📝'],
+        ['Balade + glace 🍦', 'Je prends vanille, tu voles la mienne, deal 🍦'],
+        ['Pique-nique au coucher du soleil 🌅', 'Plaid, fraises et toi qui voles mes chips, parfait 🍓'],
+        ['Resto en tête-à-tête 🕯️', 'Bougies, regards, et moi qui rougis 🕯️'],
+      ].forEach(([label, react]) => {
+        const b = el('button', 'btn opt', label);
+        b.onclick = e => { state.answers.date = label; done(react, e.clientX, e.clientY); };
+        arena.append(b);
+      });
+    } },
+
+  /* 7 — Maintenir le cœur */
+  { e: '💗', q: 'Est-ce que je te manque quand on ne se parle pas ?', sub: 'Maintiens le cœur pour répondre « oui »',
+    build({ arena, tease }) {
+      const hold = el('button', 'hold', '<svg viewBox="0 0 120 120"><circle class="trk" cx="60" cy="60" r="54"/><circle class="bar" cx="60" cy="60" r="54" transform="rotate(-90 60 60)"/></svg><span>💗</span>');
+      const bar = $('.bar', hold), heart = $('span', hold);
+      const no = noBtn('Non'); no.style.fontSize = '.85rem'; no.style.padding = '8px 18px';
+      arena.append(hold, no);
+      let p = 0, holding = false, raf = null, last = 0, finished = false;
+      const set = v => { bar.style.strokeDashoffset = 339.3 * (1 - v); heart.style.transform = `scale(${1 + v * .7})`; };
+      const step = t => {
+        const dt = t - last; last = t;
+        p = holding ? Math.min(1, p + dt / 2300) : Math.max(0, p - dt / 900);
+        set(p);
+        if (p >= 1 && !finished) {
+          finished = true; const r = hold.getBoundingClientRect();
+          done('Ton cœur parle plus fort que les mots 🥰', r.left + r.width / 2, r.top + r.height / 2); return;
+        }
+        if (holding || p > 0) raf = requestAnimationFrame(step); else raf = null;
+      };
+      const start = e => { e.preventDefault(); holding = true; tease('Continue… ne lâche pas 🥺'); last = performance.now(); if (!raf) raf = requestAnimationFrame(step); };
+      const stop = () => { if (holding) { holding = false; if (p < 1) tease('Tu as lâché trop tôt 💔'); } };
+      hold.addEventListener('pointerdown', start);
+      ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => hold.addEventListener(ev, stop));
+      hold.addEventListener('contextmenu', e => e.preventDefault());
+      no.addEventListener('click', () => { state.no++; no.classList.add('wiggle'); setTimeout(() => no.classList.remove('wiggle'), 400); tease('Ce bouton est cassé, il ne marche que pour le cœur 💔'); });
+    } },
+
+  /* 8 — Les Oui se multiplient */
+  { e: '💬', q: 'Tu veux qu\'on continue à se parler tous les jours, comme ça ?', sub: '(promis, je m\'en lasserai jamais)',
+    build({ arena, tease }) {
+      const yes = yesBtn('Oui 💖', 'Messages tous les jours, c\'est signé 💬💞');
+      const no = noBtn();
+      arena.append(yes, no);
+      const labels = ['Carrément 😍', 'Évidemment !', 'Grave ✨', 'Yes yes yes', 'Avec plaisir 🥰', 'Tous les jours 💬', 'Oui oui oui 💕'];
+      let n = 0;
+      no.addEventListener('click', () => {
+        n++; state.no++;
+        for (let k = 0; k < 4; k++) {
+          const b = yesBtn(pick(labels), 'Messages tous les jours, c\'est signé 💬💞');
+          b.style.order = Math.floor(rand(-3, 4));
+          b.animate([{ transform: 'scale(0)' }, { transform: 'scale(1)' }], { duration: 300, easing: 'cubic-bezier(.3,1.5,.5,1)' });
+          arena.append(b);
+        }
+        tease(['Oups, des Oui ont poussé 🌱', 'Ils se reproduisent 😳'][n - 1] || '');
+        if (n >= 3) { no.remove(); tease('Non a été submergé par les Oui 🥰'); }
+      });
+    } },
+
+  /* 9 — Le curseur qui refuse de descendre */
+  { e: '✨', q: 'Sur une échelle de 0 à 100, tu m\'aimes bien à combien ?', sub: '(fais glisser le curseur)',
+    build({ arena, tease }) {
+      const wrap = el('div', 'slider-wrap');
+      const disp = el('div', 'val', '50%');
+      const rng = el('input'); rng.type = 'range'; rng.min = 0; rng.max = 100; rng.value = 50;
+      const ok = el('button', 'btn yes', 'Valider 💖');
+      wrap.append(disp, rng, ok); arena.append(wrap);
+      let snapped = false;
+      rng.addEventListener('input', () => { disp.textContent = rng.value + '%'; });
+      const snap = () => {
+        const from = +rng.value; const t0 = performance.now();
+        const f = t => {
+          const p = Math.min(1, (t - t0) / 600);
+          const v = from + (100 - from) * (1 - Math.pow(1 - p, 3));
+          rng.value = v; disp.textContent = Math.round(v) + '%';
+          if (p < 1) requestAnimationFrame(f); else setTimeout(() => { disp.textContent = '∞%'; }, 350);
+        };
+        requestAnimationFrame(f);
+      };
+      const check = () => {
+        if (+rng.value < 100) { tease('Erreur : minimum accepté 100% 🤖💘'); snapped = true; snap(); return false; }
+        return true;
+      };
+      rng.addEventListener('change', check);
+      ok.addEventListener('click', e => {
+        if (!check()) return;
+        done('Résultat : ∞% — nouveau record du monde ✨💖', e.clientX, e.clientY);
+      });
+    } },
+
+  /* 10 — Le Non qui tombe */
+  { e: '🥰', q: 'Le jour où on se voit : tu me fais un câlin direct, sans réfléchir ?', sub: '(spoiler : moi je réponds oui direct)',
+    build({ arena, tease }) {
+      const yes = yesBtn('Oui 🧸', 'Rendez-vous pour le plus long câlin de l\'histoire 🧸💞');
+      const no = noBtn();
+      arena.append(yes, no);
+      let fell = false;
+      no.addEventListener('click', () => {
+        if (fell) return; fell = true; state.no++;
+        tease('Oh non, il est tombé… 😭 Il reste que Oui.');
+        no.style.pointerEvents = 'none';
+        no.animate([
+          { transform: 'none', opacity: 1 },
+          { transform: 'translateY(-26px) rotate(-8deg)', opacity: 1, offset: .2 },
+          { transform: 'translateY(260px) rotate(70deg)', opacity: 0 }
+        ], { duration: 900, easing: 'ease-in', fill: 'forwards' });
+        yes.style.transform = 'scale(1.25)';
+      });
+    } },
+
+  /* 11 — Finale : Non qui fuit + Oui qui grossit */
+  { e: '🌺', q: 'Dernière question… Tu veux bien être ma Cataleya préférée pour toujours ?', sub: '(la reine des orchidées, mon coup de cœur à moi)',
+    build({ arena, tease }) {
+      const yes = yesBtn('Oui 💖', 'Je le savais 🥹 Ça y est, c\'est officiel 💘');
+      const no = noBtn();
+      arena.append(yes, no);
+      const t = ['Sérieusement ? 🥺', 'Pas sur la dernière question !', 'Cataleya… 💔', 'Le Non est interdit ici 🚫', 'Oui est de plus en plus gros, regarde 😌', 'Allez, fais-moi ce plaisir 🌺'];
+      let n = 0;
+      dodge(no, yes, () => {
+        n++;
+        yes.style.fontSize = Math.min(2.1, 1.05 + n * .12) + 'rem';
+        yes.style.padding = (14 + n * 2) + 'px ' + (30 + n * 4) + 'px';
+        tease(t[(n - 1) % t.length]);
+      });
+    } },
+];
+
+/* ---------- rendu ---------- */
+function render(i) {
+  cleanup(); stopRain();
+  state.i = i;
+  const q = Q[i];
+  card.innerHTML = '';
+  const pct = ((i + 1) / Q.length) * 100;
+  card.append(
+    el('div', 'pt', `Question ${i + 1} / ${Q.length}`),
+    el('div', 'prog', `<div class="fill" style="width:${pct}%"></div>`),
+    el('div', 'emoji', q.e),
+    el('h1', null, q.q),
+    el('div', 'sub', q.sub || '')
+  );
+  const arena = el('div', 'arena');
+  const teaseEl = el('div', 'tease', '');
+  card.append(arena, teaseEl);
+  q.build({ arena, tease: m => { teaseEl.textContent = m; } });
+  pop();
+}
+
+function intro() {
+  cleanup(); stopRain();
+  state.i = -1; state.no = 0; state.answers = {};
+  card.innerHTML = '';
+  card.append(
+    el('div', 'emoji big', '💌'),
+    el('h1', null, 'Salut Leya…'),
+    el('div', 'sub', 'J\'ai préparé quelque chose rien que pour toi.')
+  );
+  const arena = el('div', 'arena');
+  const b = el('button', 'btn yes', 'Ouvrir 💌');
+  b.addEventListener('click', e => { burst(e.clientX || innerWidth / 2, e.clientY || innerHeight / 2, 24); render(0); });
+  arena.append(b);
+  card.append(arena, el('div', 'small', '11 questions. Aucune mauvaise réponse.<br>(Enfin… presque.)'));
+  pop();
+}
+
+function finale() {
+  cleanup();
+  card.innerHTML = '';
+  const tries = state.no;
+  const triesTxt = tries === 0 ? '0 tentative de Non… t\'es trop sage 😇' : `${tries} tentative${tries > 1 ? 's' : ''} de dire Non 😏`;
+  const chips = [triesTxt, '11 / 11 questions ✅'];
+  if (state.answers.carry) chips.push('Le plus accro : ' + state.answers.carry);
+  if (state.answers.date) chips.push('Date idéal : ' + state.answers.date);
+  card.append(
+    el('div', 'emoji big', '💖'),
+    el('h1', null, 'Moi aussi je t\'aime à la folie, Leya 🌺'),
+    el('div', 'sub', 'tu viens de gagner le jeu'),
+    el('div', 'cert', `<h2>Certificat officiel</h2><div>Leya « Cataleya » est officiellement ma personne préférée.<br><small>Valable à vie · non remboursable · non échangeable 🥰</small></div><div class="chips">${chips.map(c => `<span class="chip">${c}</span>`).join('')}</div>`),
+    el('div', 'letter', LETTER),
+    el('div', 'sign', SIGNATURE),
+    el('div', 'small', '📸 Fais une capture d\'écran et envoie-moi ton score 😌')
+  );
+  const again = el('button', 'btn ghost', 'Rejouer 🔁');
+  again.addEventListener('click', intro);
+  card.append(again);
+  pop();
+  burst(innerWidth / 2, innerHeight / 3, 40);
+  startRain();
+}
+
+intro();
+</script>
+</body>
+</html>
